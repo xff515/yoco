@@ -27,13 +27,13 @@ plot(st_geometry(CPTshape))
 qtm(CPTshape) +
   tm_legend(show = FALSE)
 
-# 3. convert Yoco's location data into an sf object 
+## 3. convert Yoco's location data into an sf object 
 df_location_sf <- st_as_sf(df_location, 
                       coords = c(x = "long", y = "lat"),
                       crs=st_crs(CPTshape)) # the same coordinate system as the shape file
 colnames(df_location_sf)[2:3] <- c("latitude","longitude")
 
-# 4. Identify intersections: for some reason, no intersection is identified using either method
+## 4. Identify intersections: for some reason, no intersection is identified using either method
 
 # method 1: 
 points <- df_location_sf %>% mutate(
